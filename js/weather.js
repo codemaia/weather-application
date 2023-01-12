@@ -20,9 +20,6 @@ const getCityData = async cityName => {
 
 }
 
-// console.log(getCityData('Belém'));
-
-
 const getCityWeather = async cityName => {
     try {
         
