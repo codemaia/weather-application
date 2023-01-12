@@ -17,12 +17,33 @@ const getCityData = async cityName => {
     } catch ({ name, message }) {
         alert(`${name}: ${message}`);
     }
+
+}
+
+console.log(getCityData('Belém'));
+
+
+const getWeatherData = async cityName => {
+    try {
+        
+        const cityWeatherUrl = `http://dataservice.accuweather.com/currentconditions/v1/${}`;
+        const response = await fetch(cityUrl);
+        
+        if (!response.ok) {
+            throw new Error('Não foi possivel obter os dados da API');
+        }
+
+        const [cityData] = await response.json();
+        return cityData;
+
+    } catch ({ name, message }) {
+        alert(`${name}: ${message}`);
+    }
     
 }
 
 
 
-console.log(getCityData('recife'))
 
 
 
