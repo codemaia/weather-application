@@ -2,6 +2,7 @@ const cityForm = document.querySelector('[data-js="change-location"]');
 const cityName = document.querySelector('[data-js="city-name"]');
 const cityWeather = document.querySelector('[data-js="city-weather"]');
 const cityTemperature = document.querySelector('[data-js="city-temperature"]');
+const cityCard = document.querySelector('[data-js="city-card"]');
 let cityTime = document.querySelector('[data-js="time"]');
 const cityTimeIcon = document.querySelector('[data-js="time-icon"]');
 
@@ -12,6 +13,10 @@ cityForm.addEventListener('submit', async event => {
     const inputValueCity = event.target.city.value;
     const { LocalizedName } = await getCityData(inputValueCity);
     const { WeatherText, WeatherIcon, Temperature, IsDayTime } = await getCityWeather(LocalizedName);
+
+    if (cityCard.classList.contains('d-none')) {
+        cityCard.classList.remove('d-none');
+    }
 
 
     if (IsDayTime) {
