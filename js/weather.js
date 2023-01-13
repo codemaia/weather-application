@@ -32,7 +32,7 @@ const getCityWeather = async cityName => {
         }
 
         const [cityWeatherData] = await response.json();
-        return console.log(cityWeatherData);
+        return cityWeatherData;
 
     } catch ({ name, message }) {
         alert(`${name}: ${message}`);
@@ -41,7 +41,7 @@ const getCityWeather = async cityName => {
 }
 
 
-getCityWeather('São Paulo');
+getCityWeather('Belém');
 
 
 

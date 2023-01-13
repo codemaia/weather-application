@@ -1,11 +1,17 @@
-const form = document.querySelector('[data-js="change-location"]');
+const cityForm = document.querySelector('[data-js="change-location"]');
 
-form.addEventListener('submit', event => {
+cityForm.addEventListener('submit', async event => {
+
     event.preventDefault();
 
     const inputValueCity = event.target.city.value;
     
-    console.log(inputValueCity);
-    form.reset();
+    const { Key, LocalizedName } = await getCityData(inputValueCity);
+    const { WeatherText, Temperature } = await getCityWeather(LocalizedName);
+
+    
+
+    console.log(WeatherText, Temperature.Metric.Value);
+    cityForm.reset();
 
 });
