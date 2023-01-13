@@ -41,7 +41,7 @@ const getCityWeather = async cityName => {
 }
 
 
-getCityWeather('Belém');
+getCityWeather('São Paulo');
 
 
 
